@@ -1,10 +1,10 @@
-import './MainLayout.css';
+import mainLayoutStyles from './MainLayout.module.css';
 
 function MainLayout(props) {
 
-    return (
-        <div className={'main-layout'}>{props.children}</div>
-    );
+  return (
+    <div className={mainLayoutStyles['main-layout']}>{props.children}</div>
+  );
 };
 
 export default MainLayout;

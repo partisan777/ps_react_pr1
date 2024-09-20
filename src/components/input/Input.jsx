@@ -1,10 +1,11 @@
-import './Input.css';
+import inputStyles from  './Input.module.css';
+import cn from 'classnames';
 
 const Input = ({placeHolder, styles, onClick}) => {
 
     return (
        <>
-        <input className={styles + ' ' + 'input'} onClick={onClick} placeholder={placeHolder} />
+        <input className={cn(styles, inputStyles['input'])} onClick={onClick} placeholder={placeHolder} />
        </>
     );
 };
