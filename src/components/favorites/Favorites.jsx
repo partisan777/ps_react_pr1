@@ -9,12 +9,13 @@ const Favorites = ({isFavorites}) => {
 
   return (
     <>
-      <div className={favorite ? cn(favoriteStyles['favorites'], favoriteStyles['out-favorites__color']) : cn(favoriteStyles['favorites'], favoriteStyles['in-favorites__color'])}>
+      <div className={favorite ? cn(favoriteStyles['favorites'], favoriteStyles['in-favorites__color'])  : cn(favoriteStyles['favorites'], favoriteStyles['out-favorites__color'])
+          }>
         <Image
-          styles={favoriteStyles['favorites__icon'] } image={favorite ? '#assets/out-favorites.svg' : '#assets/in-favorites.svg' }
+          styles={favoriteStyles['favorites__icon'] } image={favorite ? '#assets/in-favorites.svg' :  '#assets/out-favorites.svg' }
           alt={favorite ? 'out_favorites' : 'in_favorites'
         }/>
-        {favorite ? 'В избранное' : 'В избраном'}
+        {favorite ? 'В избраном' : 'В избранное'}
       </div>
     </>
   );
