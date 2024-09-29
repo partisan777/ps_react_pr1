@@ -5,6 +5,7 @@ import Paragraph from '#components/paragraph/Paragraph';
 import Input from '#components/input/Input';
 import Image from '#components/image/Image';
 import FilmCardList from '#components/filmCardList/FilmCardList';
+import AuthForm from '#components/authForm/AuthForm.jsx';
 
 function MainPage () {
     const onClick = (e) => {
@@ -12,12 +13,11 @@ function MainPage () {
       console.log(e);
     };
 
-    console.log(mainPageStyles['main-page__film-list-container']);
 
   return (
     <>
       <div className={mainPageStyles['main-page__label__container']}>
-        <Label text='Поиск'  styles={''} />
+        <Label text={'Поиск'}  styles={''} />
         <Paragraph text='Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.'  styles={''} />
       </div>
       <div className={mainPageStyles['main-page__search-container']}>
@@ -28,6 +28,9 @@ function MainPage () {
         <Button text='Искать' styles={''} onClick={onClick} />
       </div>
       <FilmCardList styles={mainPageStyles['main-page__film-list-container']} />
+      <div className={mainPageStyles['main-page__signin-form']}>
+        <AuthForm />
+      </div>
     </>
   );
 }
