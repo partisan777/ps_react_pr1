@@ -5,15 +5,19 @@ import SigninFormStyles from './SigninForm.module.css';
 import cn from 'classnames';
 import { useRef } from 'react';
 
+
 const SigninForm = (props) => {
-    const { styles ,loginData, setLoginData } = props;
+    const { styles, setAuthUser } = props;
+    const loginRef = useRef();
 
     const onSubmitSignin = (e) => {
         e.preventDefault();
-        setLoginData({ login: loginRef.current.value });
+        if (!loginRef.current.value) {
+            return;
+        }
+        setAuthUser({ login: loginRef.current.value, isLogged: true , type: 'signin'});
         loginRef.current.value = '';
     };
-    const loginRef = useRef();
 
     return (
         <form className={cn(SigninFormStyles['signin-form'], styles)} onSubmit={onSubmitSignin} >

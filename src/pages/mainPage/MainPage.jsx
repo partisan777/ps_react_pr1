@@ -5,14 +5,16 @@ import Paragraph from '#components/paragraph/Paragraph';
 import Input from '#components/input/Input';
 import Image from '#components/image/Image';
 import FilmCardList from '#components/filmCardList/FilmCardList';
-import AuthForm from '#components/authForm/AuthForm.jsx';
+import SigninForm from '#components/signinForm/SigninForm';
 
-function MainPage () {
+
+
+function MainPage (props) {
+    const { login, setAuthUser } = props;
+
     const onClick = (e) => {
       e.preventDefault();
-      console.log(e);
     };
-
 
   return (
     <>
@@ -29,7 +31,11 @@ function MainPage () {
       </div>
       <FilmCardList styles={mainPageStyles['main-page__film-list-container']} />
       <div className={mainPageStyles['main-page__signin-form']}>
-        <AuthForm />
+        {login ?
+          ''
+          :
+          <SigninForm styles={''} login={login} setAuthUser={setAuthUser} />
+        }
       </div>
     </>
   );

@@ -2,7 +2,14 @@ import headerStyles from './Header.module.css';
 import Image from '../image/Image';
 import Link from '../link/Link';
 
-const Header = () => {
+
+const Header = (props) => {
+  const { setAuthUser, login } = props;
+
+  const onClickSignout = (e) => {
+      e.preventDefault();
+      setAuthUser({ login: login, isLogged: false, type: 'signout'  });
+  };
 
   return (
     <>
@@ -18,8 +25,15 @@ const Header = () => {
             <Link href={''} text={'Мои фильмы'} onClick={(e) => {e.preventDefault(); console.log(e);}}/>
             <Image styles={''} image='#assets/circle.svg' alt={'circle'} />
           </div>
-          <div className={headerStyles['navbar__links__link']}>
-            <Link href={''} text={'Выйти'} onClick={(e) => {e.preventDefault(); console.log(e);}}/>
+          <div className={headerStyles['navbar__links__link']} onClick={onClickSignout}>
+            {login ?
+              <>
+                {login}
+                <Link href={''} text={'Выйти'} onClick={(e) => onClickSignout(e)}/>
+              </>
+              :
+              'Авторизуйтесь'
+             }
             <Image styles={''} image='#assets/exit.svg' alt={'exit'} />
           </div>
         </div>
