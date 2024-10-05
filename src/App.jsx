@@ -1,6 +1,6 @@
 import './App.css';
 import MainLayout from './components/mainLayout/MainLayout';
-import { UserContextProvider } from   '#components/context/user.context.jsx';
+import { UserContextProvider } from   '#components/context/UserContext.jsx';
 
 function App() {
 

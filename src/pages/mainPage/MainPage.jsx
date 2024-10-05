@@ -6,12 +6,12 @@ import Input from '#components/input/Input';
 import Image from '#components/image/Image';
 import FilmCardList from '#components/filmCardList/FilmCardList';
 import SigninForm from '#components/signinForm/SigninForm';
-
+import { useContext } from 'react';
+import { UserContext } from '#components/context/UserContext';
 
 
 function MainPage (props) {
-    const { login, setAuthUser } = props;
-
+    const { login } = useContext(UserContext);
     const onClick = (e) => {
       e.preventDefault();
     };
@@ -34,7 +34,7 @@ function MainPage (props) {
         {login ?
           ''
           :
-          <SigninForm styles={''} login={login} setAuthUser={setAuthUser} />
+          <SigninForm styles={''} />
         }
       </div>
     </>

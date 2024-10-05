@@ -3,12 +3,15 @@ import Input from '#components/input/Input.jsx';
 import Button from '#components/button/Button.jsx';
 import SigninFormStyles from './SigninForm.module.css';
 import cn from 'classnames';
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
+import { UserContext } from '#components/context/UserContext.jsx';
+
 
 
 const SigninForm = (props) => {
-    const { styles, setAuthUser } = props;
+    const { styles } = props;
     const loginRef = useRef();
+    const { setAuthUser } = useContext(UserContext);
 
     const onSubmitSignin = (e) => {
         e.preventDefault();

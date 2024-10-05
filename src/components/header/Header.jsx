@@ -1,10 +1,11 @@
 import headerStyles from './Header.module.css';
 import Image from '../image/Image';
 import Link from '../link/Link';
-
+import { useContext } from 'react';
+import { UserContext } from '#components/context/UserContext';
 
 const Header = (props) => {
-  const { setAuthUser, login } = props;
+  const { login, setAuthUser } = useContext(UserContext);
 
   const onClickSignout = (e) => {
       e.preventDefault();
