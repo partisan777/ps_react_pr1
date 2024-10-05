@@ -1,7 +1,6 @@
 const setAuthUserStorage = (loginData, storage) => {
 	const { login, type } = loginData;
 		const newData = storage;
-		console.log(newData);
 		if (newData.users) {
 			newData.users.forEach(el => el.isLogged = false);
 			if ( type === 'signin') {
