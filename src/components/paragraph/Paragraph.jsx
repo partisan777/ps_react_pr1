@@ -1,9 +1,10 @@
-import './Paragraph.css';
+import paragraphStyles from './Paragraph.module.css';
+import cn from 'classnames';
 
 function Paragraph({text, styles}) {
 
     return (
-        <p className={styles + ' ' + 'paragraph'}>{text}</p>
+        <p className={cn(styles, paragraphStyles['paragraph'])}>{text}</p>
     );
 };
 
